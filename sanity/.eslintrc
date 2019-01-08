@@ -1,0 +1,10 @@
+{
+  "extends": ["sanity", "sanity/react", "prettier", "prettier/react"],
+  "env": {"node": true, "browser": true},
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "complexity": ["error", {"max": 15}]
+  }
+}
