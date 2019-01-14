@@ -25,10 +25,10 @@ const BlogPostPage = ({data, pageContext}) => {
         {post.title && <h1>{post.title}</h1>}
         <time>{post._createdAt}</time>
 
-        {post.bodyRaw && (
+        {post._rawBody && (
           <BlockContent
             {...sanity}
-            blocks={post.bodyRaw}
+            blocks={post._rawBody}
             serializers={{types: {youtubeVideo: YoutubeEmbed}}}
             imageOptions={{w: 680, h: 450, fit: 'max'}}
           />
@@ -63,7 +63,7 @@ export const pageQuery = graphql`
     sanityBlogPost(slug: {current: {eq: $slug}}) {
       title
       preamble
-      bodyRaw
+      _rawBody
       _createdAt(formatString: "ddd, MMMM do YYYY HH:mm")
       slug {
         current
